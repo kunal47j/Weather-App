@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        
+    body{display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+        background-image: url("https://livewallp.com/wp-content/uploads/2024/01/Fox-on-Planet-5-thumb.png");
+        background-size: cover;
+      }
+      .wrapper{width: 300px;
+        height: fit-content;
+        background: transparent;
+        border: 2px solid;
+        cursor: pointer;
+        color: rgb(28, 24, 24);
+        padding: 30px 40px;
+        box-shadow: 0 0 30px rgba(0,0,0,2);
+        backdrop-filter: blur(5px);
+        border-radius: 10px;
+    }
+       .wrapper input{
+        height: 100%;
+        width: 70%;
+        border-radius: 30px;
+        padding: 10px 5px 8px 6px;
+        font-size: 16px;
+        transition: 0.8s;
+        background: transparent;
+       }
+       .wrapper .key{
+        padding: 5px;
+        margin-top: 2px;
+        font-family:"poppins", sans-serif;
+       }
+       button{
+        border-radius: 30px;
+        font-size: 16px;
+       }
+
+    </style>
+
+    <body>
+        <div class="wrapper">
+            <form action="/todayweather" method="POST">
+                <input type="text" placeholder="Search..." name="City">
+                <button type="submit">Search</button>
+            </form>
+
+                {% if weather%}
+                {% for key,value in weather.items( ) %}
+                <div class="key"><b>{{key}} : {{value}}</b></div>
+                {% endfor %}
+                {% endif %}
+        </div>
+    </body>
+
+</html>
